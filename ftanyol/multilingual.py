@@ -25,17 +25,13 @@ def translate(text: str):
 
         write_to_file(file_name, snake_case(text), translation)
 
-    # translation = translator.translate(text, src='en', dest='es')
-    # typer.echo(f"Hello {list(languages)}")
-
-
 def write_to_file(file_name: str, key: str, value: str):
     with open(file_name, "r") as file:
         data = json.load(file) # 1. Read file
         data[key] = value # 2. Update json object
         with open(file_name, "w") as file: # 3. Write json file
             json.dump(data, file, ensure_ascii=False)
-            print(key, ": ", value, "--->", file_name)
+            typer.echo(f"{key}: {value} ---> {file_name}")
 
 
 def get_json_files_in_dir() -> [str]:
