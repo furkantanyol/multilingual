@@ -7,7 +7,7 @@ You must run this script in the root folder where you keep your translation file
 For now, this script assumes that you name your translations with the following mask: `*-{country_iso}.json i.e. 
 main-de.json`
 
-![caption](http://www.giphy.com/gifs/TksBWToEdzfEtNymcb / GIF)
+![Alt Text](https://media.giphy.com/media/TksBWToEdzfEtNymcb/giphy.gif)
 
 ## Installation
 
