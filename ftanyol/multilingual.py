@@ -37,7 +37,7 @@ def write_to_file(file_name: str, key: str, value: str):
         if key not in data:
             data[key] = value  # 2. Update json object
             with open(file_name, "w") as file:  # 3. Write json file
-                json.dump(data, file, ensure_ascii=False)
+                json.dump(data, file, sort_keys=True, ensure_ascii=False)
                 typer.echo(f"{key}: {value} ---> {file_name}")
 
 
