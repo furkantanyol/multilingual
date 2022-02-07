@@ -7,6 +7,8 @@ from googletrans import Translator
 translator = Translator()
 app = typer.Typer()
 
+MOST_TRANSLATED_LANGUAGES = "en,de,es,fr,zh-CN,ja,ko,ar,iw,hi,ur".split(",")
+
 
 @app.command()
 def translate(text: str):
@@ -23,15 +25,20 @@ def translate(text: str):
         if translation == 'invalid':
             continue
 
-        write_to_file(file_name, snake_case(text), translation)
+        key = parametrize(remove_special_chars(text))
+
+        write_to_file(file_name, key, translation)
+
 
 def write_to_file(file_name: str, key: str, value: str):
     with open(file_name, "r") as file:
-        data = json.load(file) # 1. Read file
-        data[key] = value # 2. Update json object
-        with open(file_name, "w") as file: # 3. Write json file
-            json.dump(data, file, ensure_ascii=False)
-            typer.echo(f"{key}: {value} ---> {file_name}")
+        data = json.load(file)  # 1. Read file
+
+        if key not in data:
+            data[key] = value  # 2. Update json object
+            with open(file_name, "w") as file:  # 3. Write json file
+                json.dump(data, file, ensure_ascii=False)
+                typer.echo(f"{key}: {value} ---> {file_name}")
 
 
 def get_json_files_in_dir() -> [str]:
@@ -44,13 +51,15 @@ def extract_language_from_file_name(file_name: str) -> str:
 
 
 def validate_language(language: str) -> str:
-    match language:
-        case 'tlh':
-            return 'invalid'
-        case 'en-gb':
-            return 'en'
-        case 'zh':
-            return 'zh-CN'
+    if language == 'en-gb':  # british english -> english
+        language = "en"
+
+    if language == 'zh':  # chinese -> simplified chinese
+        language = 'zh-CN'
+
+    if language not in MOST_TRANSLATED_LANGUAGES:
+        language = 'invalid'
+
     return language
 
 
@@ -64,11 +73,12 @@ def translate_text_to_language(text: str, language: str) -> str:
         return 'invalid'
 
 
-def snake_case(s):
-    return '_'.join(
-        re.sub('([A-Z][a-z]+)', r' \1',
-               re.sub('([A-Z]+)', r' \1',
-                      s.replace('-', ' '))).split()).upper()
+def parametrize(text: str) -> str:
+    return "_".join(text.split(" ", 6)[:6]).upper()
+
+
+def remove_special_chars(text: str) -> str:
+    return re.sub('[^a-zA-Z0-9 \n.]', '', text)
 
 
 if __name__ == "__main__":
