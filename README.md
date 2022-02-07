@@ -4,8 +4,11 @@ This is a command line application that automatically translates the input sente
 translations to respective translation json files
 
 You must run this script in the root folder where you keep your translation files.
-For now, this script assumes that you name your translations with the following mask: `*-{country_iso}.json i.e. 
-main-de.json`
+For now, this script assumes that you name your translations with the following patterns:
+```shell
+{country-iso}.json --> de.json 
+*-{country_iso}.json --> main-de.json
+```
 
 ![Alt Text](https://media.giphy.com/media/TksBWToEdzfEtNymcb/giphy.gif)
 

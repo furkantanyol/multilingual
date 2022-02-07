@@ -46,13 +46,13 @@ def get_json_files_in_dir() -> [str]:
 
 
 def extract_language_from_file_name(file_name: str) -> str:
-    language = re.findall('-(.*)\.', file_name)[0]
+    language = re.findall('([A-Za-z]{2})[.json]\w+', file_name)[0]
     return validate_language(language)
 
 
 def validate_language(language: str) -> str:
-    if language == 'en-gb':  # british english -> english
-        language = "en"
+    if language == 'gb':  # british english -> english
+        language = 'en'
 
     if language == 'zh':  # chinese -> simplified chinese
         language = 'zh-CN'
