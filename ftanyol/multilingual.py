@@ -11,7 +11,7 @@ MOST_TRANSLATED_LANGUAGES = "en,de,es,fr,zh-CN,ja,ko,ar,iw,hi,ur".split(",")
 
 
 @app.command()
-def translate(text: str):
+def translate(text: str, key: str = typer.Option(None)):
     json_files = get_json_files_in_dir()
 
     for file_name in json_files:
@@ -25,7 +25,7 @@ def translate(text: str):
         if translation == 'invalid':
             continue
 
-        key = parametrize(remove_special_chars(text))
+        key = key or parametrize(remove_special_chars(text))
 
         write_to_file(file_name, key, translation)
 
@@ -34,11 +34,10 @@ def write_to_file(file_name: str, key: str, value: str):
     with open(file_name, "r") as file:
         data = json.load(file)  # 1. Read file
 
-        if key not in data:
-            data[key] = value  # 2. Update json object
-            with open(file_name, "w") as file:  # 3. Write json file
-                json.dump(data, file, sort_keys=True, ensure_ascii=False)
-                typer.echo(f"{key}: {value} ---> {file_name}")
+        data[key] = value  # 2. Update json object
+        with open(file_name, "w") as file:  # 3. Write json file
+            json.dump(data, file, sort_keys=True, ensure_ascii=False)
+            typer.echo(f"{key}: {value} ---> {file_name}")
 
 
 def get_json_files_in_dir() -> [str]:

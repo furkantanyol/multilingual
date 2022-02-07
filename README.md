@@ -30,13 +30,13 @@ $ cd {YOUR_PROJECT}/{TRANSLATIONS_DIR}`
 
 # 2. Point to the correct directory where this project is installed and run 
 $ python {CLONED_ROOT}/ftanyol/multilingual.py "Sentence to be translated"
-SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
-SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
-SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
-SENTENCE_TO_BE_TRANSLATED :  번역 될 문장 ---> main-ko.json
-SENTENCE_TO_BE_TRANSLATED :  Satz, um übersetzt zu werden ---> main-de.json
-SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en.json
-SENTENCE_TO_BE_TRANSLATED :  要翻译的句子 ---> main-zh.json
+# SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
+# SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
+# SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
+# SENTENCE_TO_BE_TRANSLATED :  번역 될 문장 ---> main-ko.json
+# SENTENCE_TO_BE_TRANSLATED :  Satz, um übersetzt zu werden ---> main-de.json
+# SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en.json
+# SENTENCE_TO_BE_TRANSLATED :  要翻译的句子 ---> main-zh.json
 ```
 
 2. Install & run the distribution in your local:
@@ -61,13 +61,13 @@ $ cd {YOUR_PROJECT}/{TRANSLATIONS_DIR}
 
 # 5. Run:
 $ multilingual "Sentence to be translated"
-SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
-SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
-SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
-SENTENCE_TO_BE_TRANSLATED :  번역 될 문장 ---> main-ko.json
-SENTENCE_TO_BE_TRANSLATED :  Satz, um übersetzt zu werden ---> main-de.json
-SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en.json
-SENTENCE_TO_BE_TRANSLATED :  要翻译的句子 ---> main-zh.json
+# SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
+# SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
+# SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
+# SENTENCE_TO_BE_TRANSLATED :  번역 될 문장 ---> main-ko.json
+# SENTENCE_TO_BE_TRANSLATED :  Satz, um übersetzt zu werden ---> main-de.json
+# SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en.json
+# SENTENCE_TO_BE_TRANSLATED :  要翻译的句子 ---> main-zh.json
 ```
      
 * For a clean environment: 
@@ -88,15 +88,27 @@ multilingual
 
 # so you can run it directly from the cli
 $ multilingual "Sentence to be translated"
-SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
-SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
-SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
-SENTENCE_TO_BE_TRANSLATED :  번역 될 문장 ---> main-ko.json
-SENTENCE_TO_BE_TRANSLATED :  Satz, um übersetzt zu werden ---> main-de.json
-SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en.json
-SENTENCE_TO_BE_TRANSLATED :  要翻译的句子 ---> main-zh.json
+# SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
+# SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
+# SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
+# SENTENCE_TO_BE_TRANSLATED :  번역 될 문장 ---> main-ko.json
+# SENTENCE_TO_BE_TRANSLATED :  Satz, um übersetzt zu werden ---> main-de.json
+# SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en.json
+# SENTENCE_TO_BE_TRANSLATED :  要翻译的句子 ---> main-zh.json
 ```
-       
+
+You can optionally specify your own key for your translation:
+```shell
+$ multilingual "Sentence to be translated" --key=TRANSLATION
+# TRANSLATION:  Sentence to be translated ---> main-en-gb.json
+# TRANSLATION:  Frase a traducir ---> main-es.json
+# TRANSLATION:  Phrase à traduire ---> main-fr.json
+# TRANSLATION:  번역 될 문장 ---> main-ko.json
+# TRANSLATION:  Satz, um übersetzt zu werden ---> main-de.json
+# TRANSLATION:  Sentence to be translated ---> main-en.json
+# TRANSLATION:  要翻译的句子 ---> main-zh.json
+```
+
 
 ## Requirements
 
