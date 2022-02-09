@@ -29,7 +29,7 @@ $ git clone https://github.com/furkantanyol/multilingual.git
 $ cd {YOUR_PROJECT}/{TRANSLATIONS_DIR}` 
 
 # 2. Point to the correct directory where this project is installed and run 
-$ python {CLONED_ROOT}/ftanyol/multilingual.py "Sentence to be translated"
+$ python {CLONED_ROOT}/multilingual/multilingual.py "Sentence to be translated"
 # SENTENCE_TO_BE_TRANSLATED :  Sentence to be translated ---> main-en-gb.json
 # SENTENCE_TO_BE_TRANSLATED :  Frase a traducir ---> main-es.json
 # SENTENCE_TO_BE_TRANSLATED :  Phrase à traduire ---> main-fr.json
