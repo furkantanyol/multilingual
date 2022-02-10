@@ -45,15 +45,19 @@ def get_json_files_in_dir() -> [str]:
 
 
 def extract_language_from_file_name(file_name: str) -> str:
-    language = re.findall('([A-Za-z]{2})[.json]\w+', file_name)[0]
-    return validate_language(language)
+    if len(file_name) <= 0:
+        return 'invalid'
+
+    lang_json_str = re.findall('[A-Za-z]{2}.json', file_name)[0]
+    lang = lang_json_str.split('.')[0]
+    return validate_language(lang)
 
 
 def validate_language(language: str) -> str:
-    if language == 'gb':  # british english -> english
+    if 'gb' in language:  # british english -> english
         language = 'en'
 
-    if language == 'zh':  # chinese -> simplified chinese
+    if 'zh' in language:  # chinese -> simplified chinese
         language = 'zh-CN'
 
     if language not in MOST_TRANSLATED_LANGUAGES:
@@ -72,8 +76,8 @@ def translate_text_to_language(text: str, language: str) -> str:
         return 'invalid'
 
 
-def parametrize(text: str) -> str:
-    return "_".join(text.split(" ", 6)[:6]).upper()
+def parametrize(text: str, word_count=6) -> str:
+    return "_".join(text.split(" ", word_count)[:word_count]).upper()
 
 
 def remove_special_chars(text: str) -> str:
