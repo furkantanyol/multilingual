@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "multilingual"
-version = "0.1.0"
+version = "0.1.1"
 description = "A command line application that automatically translates the input sentence to multiple languages adds the translations to respective translation json files"
 authors = ["Furkan Tanyol <ftanyol@securecodewarrior.com>"]
 keywords = ["translation", "translations", "automated translations"]
